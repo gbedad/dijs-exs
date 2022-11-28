@@ -77,8 +77,11 @@ const users = [
 
 let newObj = {};
 
-users.forEach((item) => {});
+users.forEach((item) => {
+  return (newObj[item.firstName] = item.role);
+});
 
+console.log(newObj);
 // Exercise 4
 
 const letters = ['x', 'y', 'z', 'z'];
