@@ -23,7 +23,9 @@ console.log(getCarHonda(inventory));
 
 function sortCarInventoryByYear(carInventory) {
   return carInventory.sort(function (x, y) {
-    return x.car_year - y.car_year;
+    let a = x.car_year,
+      b = y.car_year;
+    return a == b ? 0 : a > b ? 1 : -1;
   });
 }
 
