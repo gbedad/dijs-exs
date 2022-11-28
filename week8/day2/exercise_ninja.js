@@ -84,7 +84,7 @@ users.forEach((item) => {
 console.log(newObj);
 // Exercise 4
 
-const letters = ['x', 'y', 'z', 'z'];
+const letters = ['x', 'y', 'z', 'z', 'z', 'x'];
 
 let obj = {};
 
@@ -98,11 +98,13 @@ for (let item of letters) {
 
 console.log('With for loop ===> ', obj);
 
+const letters2 = [...letters];
+
 let obj2 = {};
 
-letters.reduce((acc, item) => {
+letters2.reduce((acc, item) => {
   if (item in obj2) {
-    obj2[item] = acc[item] + obj2[item];
+    obj2[item] = acc[item] + 1;
   } else {
     obj2[item] = 1;
   }
