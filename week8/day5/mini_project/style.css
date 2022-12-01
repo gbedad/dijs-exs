@@ -1,0 +1,31 @@
+body {
+    background-color: darkseagreen;
+}
+
+.navbar-brand {
+    font-family: 'Alien Robot', sans-serif;
+    font-size: 30px;
+
+                                                
+}
+
+img {
+    background-image: url("./circuit-pattern.png");
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.card {
+    background-color: cadetblue;
+    color: whitesmoke;
+}
+
+
+#card-content {
+    margin-top: 100px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 350px);
+    justify-content: space-around;
+    grid-gap: 20px;
+  }
