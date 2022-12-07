@@ -16,7 +16,7 @@ const getGif = () => {
 const getGifsAboutSun = () => {
   xhr.open(
     'GET',
-    'https://api.giphy.com/v1/gifs/search/tags?q=sun&limit=10&offset=2&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My'
+    'https://api.giphy.com/v1/gifs/search?q=sun&limit=10&offset=2&api_key=hpvZycW22qCjn5cRM1xtWB8NKq4dQ2My'
   );
   xhr.responseType = 'json';
   xhr.send();
@@ -24,7 +24,7 @@ const getGifsAboutSun = () => {
 
 xhr.onload = function () {
   if (xhr.status === 200) {
-    let res = xhr.response.data;
+    let res = xhr.response;
     console.log(res);
   }
 };
