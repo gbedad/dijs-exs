@@ -33,3 +33,8 @@ label {
     cursor: pointer;
     font-size: 25px;
 }
+
+.time {
+    display: flex;
+    justify-content: space-between;
+}

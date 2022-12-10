@@ -35,12 +35,25 @@ if (visitedCities.length > 0) {
                           element.temperature
                         )}</p><pan>°C</pan>
                     </div>
-                    
+                    <div class="time">
+                    <div>
                     <img src=http://openweathermap.org/img/wn/${
                       element.icon
                     }@2x.png>
+                    </div>
+                        <div>
+                          <p>${getLocalTime(element?.sunrise)}</p>
+                          <p>${getLocalTime(element?.sunset)}</p>
+                        </div>
+                   
+                    </div>
+                    
                     <p>${element.desc.toUpperCase()}</p> 
+                    <p>Wind Speed: ${element?.wind ? element?.wind : ''} kts</p>
                 </div>
+                
+                
+              
                 `;
     card.innerHTML = content;
     myDiv.appendChild(colDiv);
@@ -70,6 +83,9 @@ xhr.onload = function () {
       temperature: res.main.temp,
       icon: res.weather[0].icon,
       desc: res.weather[0].description,
+      sunrise: res.sys.sunrise,
+      sunset: res.sys.sunset,
+      wind: res.wind.speed,
     };
 
     if (res.name in visitedCities) {
@@ -88,6 +104,7 @@ xhr.onload = function () {
                 <p>${res.main.temp}°C</p>
                 <img src=http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png>
                 <p>${res.weather[0].description}</p>
+                <p>Wind Speed: ${res.wind.speed} kts</p>
             </div>
               `;
       card.innerHTML = content;
@@ -120,3 +137,10 @@ function removeCard() {
     });
   });
 }
+
+function getLocalTime(unixTimestamp) {
+  const date = new Date(unixTimestamp * 1000);
+  return date.toLocaleTimeString('default');
+}
+
+console.log(getLocalTime(1661834187));
