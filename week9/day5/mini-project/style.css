@@ -12,7 +12,24 @@ img {
 }
 h5 {
     display: inline-block;
+    color: cadetblue;
 }
 .temp {
     display: flex;
+}
+
+label {
+    color: darkseagreen;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.remove {
+    background: none;
+    border: none;
+    color: crimson;
+    cursor: pointer;
+    font-size: 25px;
 }

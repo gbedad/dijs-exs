@@ -5,6 +5,7 @@ const API_KEY = '6bc236fa8bd5e7e03f83fd8cea3eac74';
 
 let content;
 const myDiv = document.getElementById('card-weather');
+let card_to_remove = document.getElementsByClassName('card');
 
 //let city = 'Tel Aviv';
 //let visitedCities = []
@@ -16,10 +17,19 @@ if (visitedCities.length > 0) {
     card.classList = 'card';
     colDiv.classList = 'col';
     const content = `
-
                 <div class="card-body">
-                    <h5>${element.city}</h5>
-                    <span class="badge bg-danger">${element.country}</span>
+                <div class="header">
+                    <div>
+                      <h5>${element.city}</h5>
+                      <span class="badge bg-danger">${element.country}</span>
+                    </div>
+                  
+                    <div>
+                      <button class="remove" onclick="removeCard()">X</button>
+                    </div>
+                    
+                </div>
+                    
                     <div class="temp">
                         <p class="h1 temp">${Math.round(
                           element.temperature
@@ -84,6 +94,7 @@ xhr.onload = function () {
       myDiv.appendChild(card);
     }
     console.log(visitedCities);
+    location.reload();
 
     //document.getElementById('root').innerHTML = xhr.response.value;
 
@@ -96,3 +107,16 @@ xhr.onload = function () {
 xhr.onerror = function () {
   console.log(xhr.response);
 };
+
+let cards = document.querySelectorAll('.card');
+function removeCard() {
+  [...cards].forEach((card, item) => {
+    card.addEventListener('click', function () {
+      console.log('clicked', item);
+      visitedCities.splice(item, 1);
+      console.log(visitedCities);
+      localStorage.setItem('myCities', JSON.stringify(visitedCities));
+      location.reload();
+    });
+  });
+}
