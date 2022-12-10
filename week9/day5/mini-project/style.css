@@ -1,0 +1,18 @@
+body {
+    background-color: darkorchid;
+}
+
+
+h1 {
+    color: ghostwhite;
+}
+
+img {
+    width:100px
+}
+h5 {
+    display: inline-block;
+}
+.temp {
+    display: flex;
+}
