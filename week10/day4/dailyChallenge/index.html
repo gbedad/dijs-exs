@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Sunrise & Sunset in different Cities</h1>
+    <div id="root">
+      <fieldset>
+        Paris:
+        <br />
+        <input
+          type="text"
+          name="lat1"
+          id="lat1"
+          placeholder="Latitude of Paris"
+        />
+
+        <br />
+        <input
+          type="text"
+          name="long1"
+          id="long1"
+          placeholder="Longitude of Paris"
+        />
+      </fieldset>
+      <span id="parisSunrise"></span>
+      <span id="parisSunset"></span>
+      <br />
+      <fieldset>
+        New York:
+        <br />
+        <input
+          type="text"
+          name="lat2"
+          id="lat2"
+          placeholder="Latitude of New York"
+        />
+        <br />
+        <input
+          type="text"
+          name="long2"
+          id="long2"
+          placeholder="Longitude of New York"
+        />
+      </fieldset>
+      <span id="nySunrise"></span>
+      <span id="nySunset"></span>
+      <br />
+
+      <button type="button" onclick="getGeocode()">Try it</button>
+    </div>
+    <script src="./dailyChallenge.js"></script>
+  </body>
+</html>
