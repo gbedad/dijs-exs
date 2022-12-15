@@ -1,7 +1,10 @@
-body {
+body, html {
+    height: 100vh;
     background-image: url('./starwars_bg.jpeg');
     background-repeat: no-repeat;
-    background-size: 100vw;
+    background-size: 100%;
+    width: 100%;
+    height: fit-content;
     display: flex;
     justify-content: flex-start;
 }

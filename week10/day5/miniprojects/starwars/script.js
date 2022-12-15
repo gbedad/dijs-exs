@@ -10,21 +10,20 @@ const getStarWarsCharacter = () => {
     document.getElementById('people').innerHTML = loader;
 
     try {
-      if (!response1) {
-        const message = `
-    
-    <p>Oops, no character found...</p>`;
-        document.getElementById('people').innerHTML = message;
-      }
       let character = await response1.json();
       const selectedCharacter = await character.result.properties;
       console.log('prop', selectedCharacter);
       const response2 = await fetch(selectedCharacter.homeworld);
       let home = await response2.json();
       const completeCharacter = await Promise.all([selectedCharacter, home]);
+
       console.log(completeCharacter);
       return { details: completeCharacter[0], home: completeCharacter[1] };
     } catch (err) {
+      const message = `
+                <p>Oops, no character found...</p>`;
+      document.getElementById('people').innerHTML = message;
+
       console.log(err);
     }
   };
