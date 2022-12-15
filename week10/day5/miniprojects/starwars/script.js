@@ -4,8 +4,18 @@ const getStarWarsCharacter = () => {
     const response1 = await fetch(
       `https://www.swapi.tech/api/people/${randomNumber}`
     );
+    const loader = `
+    <i class="fa-solid fa-cog fa-spin"></i>
+    <p>Loading...</p>`;
+    document.getElementById('people').innerHTML = loader;
 
     try {
+      if (!response1) {
+        const message = `
+    
+    <p>Oops, no character found...</p>`;
+        document.getElementById('people').innerHTML = message;
+      }
       let character = await response1.json();
       const selectedCharacter = await character.result.properties;
       console.log('prop', selectedCharacter);
