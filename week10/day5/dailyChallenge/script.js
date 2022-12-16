@@ -42,6 +42,7 @@ const getExchange = async () => {
       : 1;
   let currencyFrom = document.getElementById('select-from').value;
   let currencyTo = document.getElementById('select-to').value;
+
   const response = await fetch(
     `${BASE_URL}${API_KEY}/pair/${currencyFrom}/${currencyTo}/${amount}`
   );
@@ -76,6 +77,10 @@ const reversedConversion = async () => {
   console.log(myValues);
   const { base, target } = myValues;
   let amount = document.getElementById('amount').value;
+  const from = document.getElementById('select-from');
+  const to = document.getElementById('select-to');
+  from.options[from.selectedIndex].innerHTML = target;
+  to.options[to.selectedIndex].text = base;
 
   const response = await fetch(
     `${BASE_URL}${API_KEY}/pair/${target}/${base}/${amount}`
