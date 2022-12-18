@@ -1,0 +1,37 @@
+body {
+    margin: 10px auto;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main {
+    position: relative;
+}
+#screen-1 {
+    position: absolute;
+    top: 10%;
+    left: 38%
+}
+
+#screen-1 img {
+    width: 200px;
+
+}
+
+#screen-2 {
+    position: absolute;
+    top: 60%;
+    left: 35%
+}
+
+#screen-2 p:first-child {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 26px;
+    color: navy
+
+}
