@@ -23,3 +23,29 @@ INSERT INTO SecondTab VALUES
 
 
 SELECT * FROM SecondTab */
+
+-- Q1 
+/*
+SELECT COUNT(*) 
+    FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id IS NULL )
+*/
+-- the query will count the number of items from firstTab with id != 5 : 2 items 6 and 7
+--Q2
+/*
+SELECT COUNT(*) 
+    FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id = 5 )
+*/
+-- the query will count 2 items
+--Q3
+/*
+SELECT COUNT(*) 
+    FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab )
+*/
+
+
+--Q4
+/*
+SELECT COUNT(*) 
+    FROM FirstTab AS ft WHERE ft.id NOT IN ( SELECT id FROM SecondTab WHERE id IS NOT NULL )
+*/
+-- The query will count 2 items
