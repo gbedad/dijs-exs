@@ -40,6 +40,7 @@
 --select first_name, last_name, length(concat(first_name, last_name)) as length_fn from employees;
 
 --Q14
+--select * from employees where first_name like '%[0-9]%';
 
 --Q15
 --select first_name, last_name from employees limit 10;
@@ -54,6 +55,11 @@
 --select first_name, last_name,hire_date from employees where hire_date >= '1987-01-01' and hire_date <= '1987-12-31';
 
 --Q3
+/*
+select * from employees 
+where first_name like '%e%' 
+and first_name like '%c%';
+*/
 
 --Q4
 /*
