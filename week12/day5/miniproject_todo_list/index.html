@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="nav">
+      <a href="./index.html">New Todo</a>
+      <a href="./displayTask.html">Todo list</a>
+    </div>
+    <div class="root">
+      <h1>TODO APP</h1>
+      <h3>Insert a new Todo</h3>
+      <form onsubmit="handleFormSubmit(event)">
+        <label for="name">Name:</label><br />
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name of the task"
+        /><br />
+        <label for="description">Description:</label><br />
+        <textarea
+          id="description"
+          name="description"
+          rows="5"
+          cols="33"
+          placeholder="Enter description of the task..."
+        ></textarea
+        ><br />
+        <label for="start-date">Start Date:</label><br />
+        <input type="datetime-local" id="start-date" name="start-date" /><br />
+        <label for="end-date">End Date:</label><br />
+        <input type="datetime-local" id="end-date" name="end-date" /><br />
+        <input
+          type="checkbox"
+          style="display: none"
+          id="status"
+          name="status"
+          defaultValue="false"
+        /><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
