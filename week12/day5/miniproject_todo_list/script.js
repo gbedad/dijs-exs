@@ -67,27 +67,42 @@ function handleFormSubmit(event) {
 
 function displayTasks(arr) {
   const html = arr.map((task) => {
-    console.log(task.startDate, today > task.endDate && task.status === false);
     const myClass = task.status
       ? 'green'
       : getNumberOfDays(task.endDate) < 0
       ? 'orange'
       : 'red';
     const content = `
-                      <div class="${myClass} task">
-                          Name: <span>${task.title}</span><br/>
-                          Start Date: <span>${task.startDate}</span>
-                          Days remaining: <span>${
+                    <div class="${myClass} task">
+                      <div class="accordion" >
+                       
+                          <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            ${task.title}
+                            </button>
+                          </h2>
+                          <div id="collapseOne" class="collapse" >
+                            <div class="accordion-body">
+                            ${task.description}
+                            </div>
+                        
+                        </div>
+                      </div>
+
+ 
+                          
+                          <div class="item">${task.startDate}</div>
+                          <div class="item">${
                             getNumberOfDays(task.endDate) > 0
                               ? getNumberOfDays(task.endDate)
                               : 'Late'
-                          } </span>
-                          Completed: <span>${task.status}</span>
-                          <span class="del">X</span>
-                          <hr>
+                          } </div>
+                          <div class="item">${task.status}</div>
+                          <div class="del item">X</div>
+                          <div class="check item">&#10003;</div>
                       </div>
-                      
-      `;
+                      <hr>    
+                    `;
 
     return content;
   });
@@ -101,18 +116,26 @@ function getTasksFromLocalStorage() {
 
 displayTasks(tasksSorted);
 
-function confirmTaskCompletion() {
-  const isDone = document.getElementById('status').checked;
-
-  return isDone;
-}
-
 // Click on a close button to hide the current list item
-let close = document.getElementsByClassName('task');
+let close = document.getElementsByClassName('del');
 
 for (let i = 0; i < close.length; i++) {
   close[i].onclick = function () {
-    tasks.splice(i, 1);
+    const conf = confirm('Press OK to close this option');
+    if (conf) {
+      tasks.splice(i, 1);
+      localStorage.setItem(ITEM_TASKS, JSON.stringify(tasks));
+      window.location.reload();
+    }
+  };
+}
+
+// Add a "checked" symbol when clicking on a list item
+let taskSelected = document.getElementsByClassName('check');
+
+for (let i = 0; i < close.length; i++) {
+  taskSelected[i].onclick = function () {
+    tasks[i].status = true;
     localStorage.setItem(ITEM_TASKS, JSON.stringify(tasks));
     window.location.reload();
   };

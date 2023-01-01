@@ -36,16 +36,28 @@ font-size: 18px;
     color: orange
 }
 
-.myClass {
-    position: relative;;
-}
-/* Style the close button */
-.del {
 
-    padding: 12px 16px 12px 16px;
+/* Style the close button */
+.item {
+    align-self: center;
   }
   
-  .del:hover {
+.del:hover {
     background-color: #f44336;
     color: white;
+    cursor: pointer;
   }
+
+.check:hover {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+  }
+
+
+
+.task {
+    display: grid;
+    grid-template-columns: [task] 500px [Starting Date] 150px [Days remaining] 100px [Completed] 100px [Delete] 40px [Complete] 40px [end];
+    grid-gap: 10px;  
+}
