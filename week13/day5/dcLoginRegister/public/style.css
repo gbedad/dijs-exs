@@ -1,0 +1,16 @@
+h1, #register, #login  {
+    text-align: center;
+}
+
+#register, #login {
+    margin-top: 15px;
+    color: green;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    margin: 0 auto;
+}
