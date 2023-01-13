@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <title>Hackaton2</title>
-  </head>
+<head>
+    <%- include('partials/head'); %>
+</head>
   <body>
     <%- include('partials/navbar'); %>
     <div class="jumbotron">
-      <div class="container"><h1>Master Classes</h1></div>
+      <div class="container">
+        <h1>Master Classes</h1>
+        <div class="row">
+            <%  if (mc_classes.length != 0) { %>
+            <div class="d-flex flex-row bd-highlight mb-3 justify-content-evenly
+                        align-items-center mt-5">
+                <% mc_classes.forEach(mc => { %>
+                <div class="card col-4" style="width: 18rem;">
+                    <img src="images/pizza_icon.png"
+                         class="card-img-top text-center col-md-3 offset-md-3"
+                         style="width: 40%">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=mc.mc_name%></h5>
+                        <h6 class="card-title"><%=mc.mc_location%></h6>
+                        <p class="card-text text-center">
+                            <span><%=mc.mc_date.toDateString()%></span>
+                        </p>
+                    </div>
+                </div>
+                <% }) %>
+                <% } else { %>
+                <div class="col-md-12">
+                    <h4>No Master Classes Planned</h4>
+                </div>
+                <% } %>
+            </div>
+        </div>
+      </div>
     </div>
-<<footer><%- include('partials/footer'); %></footer>
+<footer><%- include('partials/footer'); %></footer>
   </body>
 </html>

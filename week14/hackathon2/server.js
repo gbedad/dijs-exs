@@ -7,7 +7,7 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.use('/', express.static(__dirname + '/public'))
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(
@@ -20,12 +20,30 @@ app.use(
 )
 app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist")))
 
-// app.get('/', (req, res) => {
-//   res.render(path.join(__dirname, "public/views/home"))
-// })
-
 app.get('/', (req, res) => {
-  res.render("home")
+  db('masterclasses')
+  .select('mc_name', 'mc_location', 'mc_date')
+  .then(data => {
+    console.log(data);
+    res.render("home", {mc_classes: data})
+  })
+  .catch(err => {
+    console.log(err);
+    res.send({message:err.detail})
+  })
+
+})
+
+app.post('/login', (req, res) => {
+    res.render('login')
+})
+
+app.post('/register', (req, res) => {
+  res.render('register')
+})
+
+app.get('/about', (req, res) => {
+    res.render('about')
 })
 
 const PORT = 3001;
