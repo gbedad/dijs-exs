@@ -1,0 +1,32 @@
+{
+    "name": "hackathon2",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gbedad/dijs-exs.git#main"
+    },
+    "author": "Gerald Berrebi",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gbedad/dijs-exs/issues"
+    },
+    "homepage": "https://github.com/gbedad/dijs-exs/tree/main#readme",
+    "dependencies": {
+        "body-parser": "^1.20.1",
+        "bootstrap": "^5.2.3",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "jquery": "^3.6.3",
+        "knex": "^2.4.0",
+        "pg": "^8.8.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
+}
