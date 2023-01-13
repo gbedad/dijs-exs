@@ -4,6 +4,7 @@ const path = require("path")
 const {db} = require('./modules/database.js')
 
 const app = express();
+app.set('view engine', 'ejs');
 
 app.use('/', express.static(__dirname + '/public'))
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -19,8 +20,12 @@ app.use(
 )
 app.use("/js", express.static(path.join(__dirname, "node_modules/jquery/dist")))
 
+// app.get('/', (req, res) => {
+//   res.render(path.join(__dirname, "public/views/home"))
+// })
+
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, "public/views/index.html"))
+  res.render("home")
 })
 
 const PORT = 3001;
