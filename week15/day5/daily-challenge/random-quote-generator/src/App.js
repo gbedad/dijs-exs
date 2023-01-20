@@ -4,10 +4,9 @@ import './App.css';
 function App() {
   const newColor = localStorage.getItem('rand-color')
   return (
-
-
-      <RandomQuote  />
-
+    <div style={{ height: "100vh",width:'100vw', display:'flex', justifyCentent:'center', alignItems:'center' }}>
+          <RandomQuote  />
+    </div>
   );
 }
 

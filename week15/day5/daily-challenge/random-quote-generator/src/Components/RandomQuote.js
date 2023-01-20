@@ -52,14 +52,12 @@ class RandomQuote extends Component {
     const {quote, color} = this.state
     console.log(color);
     return (
-      <div style={{backgroundColor: `${color}`}}>
-        <div >
+      <div style={{backgroundColor: `${color}`, height:'100%', width:'100%'}}>
           <blockquote>
             {quote.quote}
             <span>Author: {quote.author ? quote.author : "Unknown"}</span>
             <button style={{background: `${color}`, color:"white", fontWeight:"bold", padding:"3px", borderRadius:"3px"}} onClick={this.handleClick}>Change Quote</button>
           </blockquote>
-        </div>
       </div>
     )
   }
