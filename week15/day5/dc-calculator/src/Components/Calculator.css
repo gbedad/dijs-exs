@@ -1,5 +1,6 @@
 .calc {
-  width: 600px;
+  min-width: 600px;
+  max-width: auto;
   background: purple;
   height: 500px;
   display: flex;
@@ -41,4 +42,7 @@
   margin: 5px;
   text-align: center;
   font-size: 2rem;
+}
+.res {
+  text-align: center;
 }

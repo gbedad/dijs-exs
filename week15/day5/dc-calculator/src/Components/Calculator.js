@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import OperationButton from './OperationButton'
-import InputBox from './InputBox'
+import SelectOp from './SelectOp'
 import './Calculator.css'
 
 class Calculator extends Component {
@@ -13,7 +13,6 @@ class Calculator extends Component {
   }
   handleSelect = () => {
     const  e = document.getElementById("selectedOp");
-    const value = e.value;
     const text = e.options[e.selectedIndex].text;
     this.setState({operation: text})
   }
@@ -35,28 +34,22 @@ class Calculator extends Component {
         case 'Substracting 2 Numbers':
         this.setState({result: input1 - input2})
         break;
+        default:
+        this.setState({result: 0})
       }
     }
   render () {
     const {operation, result} = this.state
     return (
       <div className='calc'>
-          <div>
-            <select id="selectedOp" onChange={this.handleSelect}>
-              <option value='1'>Adding 2 numbers</option>
-              <option value='2'>Dividing 2 Numbers</option>
-              <option value='3'>Multiplying 2 Numbers</option>
-              <option value='4'>Substracting 2 Numbers</option>
-            </select>
-          </div>
+
+          <SelectOp onChange={this.handleSelect}/>
           <div>
             <input type="number" id="num1" />
             <input type="number" id="num2" />
           </div>
-          <div>
-            <button onClick={this.handleOperation}>{operation}</button>
-          </div>
-          <div>{result}</div>
+          <OperationButton handleOperation={this.handleOperation} operation={operation}/>
+          <div className="res">{result !==0 ?  Math.round(result * 100000) / 100000 : 0}</div>
       </div>
     )
   }
