@@ -1,0 +1,44 @@
+.calc {
+  width: 600px;
+  background: purple;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 6rem;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.calc button {
+  height: 60px;
+  width: 200px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 10px;
+  background-color: cyan;
+  color: navy;
+}
+
+.calc input {
+  height: 60px;
+  width: 200px;
+  margin: 5px;
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  background: lightgrey;
+  color: navy;
+  border-radius: 5px;
+}
+.calc select {
+  height: 60px;
+  width: 400px;
+  margin: 5px;
+  text-align: center;
+  font-size: 2rem;
+}
