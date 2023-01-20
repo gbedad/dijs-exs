@@ -35,24 +35,32 @@ class RandomQuote extends Component {
   }
 
   handleClick = () => {
-    this.setState({quote: QuoteData[generateRandom(0, quotesDataLenght)], color:`rgb(${generateRandom(0,255)}, ${generateRandom(0,255)}, ${generateRandom(0,255)})` })
+    let newQuote = QuoteData[generateRandom(0, quotesDataLenght)]
+    if (newQuote !== this.state.quote) {
+      this.setState({quote: newQuote, color:`rgb(${generateRandom(0,255)}, ${generateRandom(0,255)}, ${generateRandom(0,255)})` })
+    }
+
     localStorage.setItem("rand-color", this.state.color)
   }
+  // style = {
+  //   body, button {
+  //     background: `${color}`
+  //   }
+  // }
 
   render() {
     const {quote, color} = this.state
     console.log(color);
-
     return (
-      <>
-        <div style={{backgroundColor: "white", border: "1px solid black", padding:"10px"}}>
+      <div style={{backgroundColor: `${color}`}}>
+        <div >
           <blockquote>
             {quote.quote}
             <span>Author: {quote.author ? quote.author : "Unknown"}</span>
+            <button style={{background: `${color}`, color:"white", fontWeight:"bold", padding:"3px", borderRadius:"3px"}} onClick={this.handleClick}>Change Quote</button>
           </blockquote>
-          <button style={{backgroundColor: `${color}`}} onClick={this.handleClick}>Change Quote</button>
         </div>
-      </>
+      </div>
     )
   }
 }
