@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+}
+
+.remove {
+  cursor: pointer;
+}
+.remove:hover {
+text-decoration: line-through;
+}
