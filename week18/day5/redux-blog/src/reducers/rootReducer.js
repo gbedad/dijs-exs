@@ -10,11 +10,12 @@ export const reducer = (state=initState, action={}) => {
 switch (action.type) {
 
     case 'DELETE_POST':
+      const newPosts = state.posts.filter(post => post.id !== action.id);
       return {
         ...state,
-        posts: state.posts.filter(post => post.id !== action.payload)
+        posts: newPosts
       };
-
+ 
     default:
         return {...state}
 }

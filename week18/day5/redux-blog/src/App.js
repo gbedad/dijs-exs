@@ -8,13 +8,14 @@ import Contact from './components/Contact';
 import Post from './components/Post';
 
 const App = () => {
+  
   return (
     <Router>
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home/>} />
-          <Route exact path="/:postId" element={<Post />} />
+          <Route exact={true} path="/" element={<Home/>} />
+          <Route path="/:postId" element={<Post />} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<Contact />} />
           

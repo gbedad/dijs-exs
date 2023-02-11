@@ -5,49 +5,19 @@ import { connect } from 'react-redux';
 import { deletePost } from '../actions/postActions'
 
 
-// const withParams = Component => {
-//   return props => {
-//     const params = useParams();
-
-//     return <Component {...props} params={params} />;
-//   };
-// };
-
-// class Post extends React.Component {
-  
-//   render() {
-    
-//     const { post } = this.props;
-//     console.log(post);
-//     if (post) {
-//       return (
-//         <div>
-//           <h1>{post.title}</h1>
-//           <p>{post.body}</p>
-//         </div>
-//       );
-//     } else {
-//       return <div>Loading...</div>;
-//     }
-//   }
-// }
-
 const Post = (props) =>{
-console.log(props);
+
 const navigate = useNavigate();
 const { postId } = useParams();
-console.log(postId);
+
 const post = props.posts.find(post => post.id === postId);
-// // const post = props.post.find(p => p.id === postId);
- 
   
  console.log(post);
 
  const handleClick = () => {
-  console.log(post.id);
-    deletePost(post.id)
-    props.history.push('/')
-    // navigate('/')
+    props.deletePost(post.id);
+    console.log(props);
+    navigate('/')
     }
     
     return (
